@@ -36,7 +36,7 @@ class TestYandexLogIn(unittest.TestCase):
 
     @parameterized.expand([
         ["empty_login", "", "Логин не указан"],
-        ["empty_login", "invalid_characters", "Такой логин не подойдет"],
+        ["invalid_characters", "invalid_characters", "Такой логин не подойдет"],
         ["login_not_exist", "lhjhjklj", "Нет такого аккаунта. Проверьте логин или войдите по телефону"]
     ])
     def test_enter_incorrect_login(self, type_error, incorrect_login, error_massage):
