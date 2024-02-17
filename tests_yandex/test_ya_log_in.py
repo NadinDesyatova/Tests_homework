@@ -62,7 +62,7 @@ class TestYandexLogIn(unittest.TestCase):
         login = WebDriverWait(self.browser, 1).until(
             expected_conditions.presence_of_element_located((By.ID, "passp-field-login"))
         )
-        login.send_keys("nadindinina")
+        login.send_keys("your_login")
         login.send_keys(Keys.RETURN)
 
         time.sleep(5)
