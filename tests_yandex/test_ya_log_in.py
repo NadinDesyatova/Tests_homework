@@ -21,15 +21,15 @@ class TestYandexLogIn(unittest.TestCase):
         login.send_keys("your_login")
         login.send_keys(Keys.RETURN)
 
-        time.sleep(5)
+        # time.sleep(5)
 
-        password = WebDriverWait(self.browser, 1).until(
+        password = WebDriverWait(self.browser, 3).until(
             expected_conditions.presence_of_element_located((By.ID, "passp-field-passwd"))
         )
         password.send_keys("your_password")
         password.send_keys(Keys.RETURN)
 
-        time.sleep(5)
+        time.sleep(3)
 
         current_url = self.browser.current_url
         self.assertEqual(current_url, "https://id.yandex.ru/")
@@ -58,16 +58,16 @@ class TestYandexLogIn(unittest.TestCase):
         ["empty_password", "", "Пароль не указан"],
         ["invalid password", "lhjhjklj", "Неверный пароль"]
     ])
-    def test_enter_incorrect_login(self, type_error, incorrect_password, error_massage):
+    def test_enter_incorrect_password(self, type_error, incorrect_password, error_massage):
         login = WebDriverWait(self.browser, 1).until(
             expected_conditions.presence_of_element_located((By.ID, "passp-field-login"))
         )
         login.send_keys("your_login")
         login.send_keys(Keys.RETURN)
 
-        time.sleep(5)
+        # time.sleep(3)
 
-        password = WebDriverWait(self.browser, 1).until(
+        password = WebDriverWait(self.browser, 3).until(
             expected_conditions.presence_of_element_located((By.ID, "passp-field-passwd"))
         )
         password.send_keys(incorrect_password)
